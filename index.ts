@@ -54,6 +54,10 @@ bot.on('message', (msg) => {
 
     const senderId = msg.chat.id;
 
+    if (!msg.text) {
+        return bot.sendMessage(senderId, 'Only text messages are supported for now.')
+    }
+
     const recipientOptions = new Set<string>()
 
     for (let gidnum of groups.allIds) {
@@ -80,8 +84,6 @@ bot.on('message', (msg) => {
     if (tmp.length === 1) buttons.push([...tmp])
 
     buttons.push([{ text: "❌ Cancel", callback_data: "cancel_send" }]);
-
-    console.log('message buttons', buttons)
 
     bot.sendMessage(senderId, "👤 Who do you want to message anonymously?", {
         reply_markup: {
