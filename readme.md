@@ -30,7 +30,13 @@ This is a simple Telegram bot that allows users to send anonymous messages withi
    docker build -t anonbot .
    ```
 
-3. Run using container and passing environment variables
+3. create a storage.json to be used as bind mount
+   ```bash
+   touch storage.json
+   chmod 666 storage.json
+   ```
+
+4. Run using container and passing environment variables or docker compose...
 
    ```plaintext
    docker run anonbot -e TELEGRAM_BOT_TOKEN=xxxxxx

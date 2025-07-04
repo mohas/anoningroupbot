@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  anonbot:
+    container_name: anonbot
+    image: anonbot
+    environment:
+      - TELEGRAM_BOT_TOKEN=
+    volumes:
+      - ./storage.json:/app/storage.json
+    restart: unless-stopped

@@ -46,7 +46,7 @@ bot.onText(/^\/register/, (msg) => {
 
     saveUsers();
 
-    bot.sendMessage(groupId, `✅ Registered". You can now use /send with me (@anoningroupbot) to message and receive anonymously.`);
+    bot.sendMessage(groupId, '✅ Registered. You can now message me at @anoningroupbot to send and receive anonymously.');
 });
 
 bot.on('message', (msg) => {

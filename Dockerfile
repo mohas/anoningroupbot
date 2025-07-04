@@ -15,7 +15,7 @@ FROM node:23-alpine
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
 COPY index.ts .
-RUN touch storage.json && chown -R node:node /app/storage.json
+RUN touch storage.json && chown node:node /app/storage.json
 
 ENV TZ=UTC
 ENV NODE_ENV=production
