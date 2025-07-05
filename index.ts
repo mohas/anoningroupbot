@@ -73,7 +73,9 @@ bot.on('message', (msg) => {
     const tmp: any[] = [];
     for (const uid of recipientOptions) {
         tmp.push({
-            text: `${users.byId[uid]?.first_name} ${users.byId[uid]?.last_name}`,
+            text: [users.byId[uid]?.first_name ?? '',
+                    users.byId[uid]?.last_name ?? '',
+                    users.byId[uid]?.username ? `(${users.byId[uid]?.username})` : ''].filter(Boolean).join(' '),
             callback_data: `sendto_${uid}`,
         })
         if (tmp.length === 2) {
